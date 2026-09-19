@@ -1,16 +1,12 @@
 #include <iostream>
-
-void swap(int& a, int& b) {
-    int tmp = a;
-    a = b;
-    b = tmp;
-}
- 
+#include <vector>
+#include <algorithm>
 
 int main() {
-    int x,y;
-    std::cin>>x>>y;
-    swap(x,y);
-    std::cout<<x<<" "<<y;
-    return 0;
+    std::vector<int> nums;
+    int x;
+    while (std::cin>>x){
+        nums.push_back(x);
+    }
+    std::cout << *std::max_element(nums.begin(),nums.end());
 }
