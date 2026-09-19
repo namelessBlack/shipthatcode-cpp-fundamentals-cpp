@@ -2,10 +2,19 @@
 #include <algorithm>
 
 int main() {
-    std::string name;
-    int age;
-    std::getline(std::cin, name);
-    std::cin>>age;
-    std::cout << "Hi, " << name << "! " << "You are " << age << " years old.";
-    return 0; 
+    int num;
+    std::cin>>num;
+    if (num%15==0){
+        std::cout<<"FizzBuzz";
+    }
+    else if (num%3==0){
+        std::cout<<"Fizz";
+    }
+    else if (num%5==0){
+        std::cout<<"Buzz";
+    }
+    else {
+        std::cout<<num;
+    }
+
 }
