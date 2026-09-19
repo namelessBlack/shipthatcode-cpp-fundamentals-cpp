@@ -1,8 +1,9 @@
 #include <iostream>
+#include <algorithm>
 
 int main() {
-    int a,b;
-    std::cin>>a>>b;
-    std::cout<<a*b;
-    return 0;
+    std::string str;
+    std::getline(std::cin, str);
+    std::reverse(str.begin(),str.end());
+    std::cout<<str;
 }
