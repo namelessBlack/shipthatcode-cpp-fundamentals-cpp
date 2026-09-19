@@ -1,12 +1,12 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
+#include <unordered_set>
 
 int main() {
-    std::vector<int> nums;
-    int x;
-    while (std::cin>>x){
-        nums.push_back(x);
+    std::unordered_set<std::string> words;
+    std::string seen;
+    while (std::cin>>seen){
+        words.insert(seen);
     }
-    std::cout << *std::max_element(nums.begin(),nums.end());
+    std::cout << words.size() << "\n";
+    
 }
