@@ -1,12 +1,16 @@
 #include <iostream>
 
-int square(int n){
-    return n*n;
+void swap(int& a, int& b) {
+    int tmp = a;
+    a = b;
+    b = tmp;
 }
+ 
 
 int main() {
-    int num;
-    std::cin>>num;
-    std::cout<<square(num);
+    int x,y;
+    std::cin>>x>>y;
+    swap(x,y);
+    std::cout<<x<<" "<<y;
     return 0;
 }
