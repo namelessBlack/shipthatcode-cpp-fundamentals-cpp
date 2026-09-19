@@ -4,17 +4,11 @@
 int main() {
     int num;
     std::cin>>num;
-    if (num%15==0){
-        std::cout<<"FizzBuzz";
+    int sum = 0;
+    for (int i = 1; i<= num;i++){
+        sum+=i;
     }
-    else if (num%3==0){
-        std::cout<<"Fizz";
-    }
-    else if (num%5==0){
-        std::cout<<"Buzz";
-    }
-    else {
-        std::cout<<num;
-    }
+    std::cout<<sum;
+
 
 }
