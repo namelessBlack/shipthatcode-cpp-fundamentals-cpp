@@ -1,39 +1,16 @@
 #include <iostream>
 #include <iomanip>
-
-class Shape {
-public:
-    virtual double area() const = 0;
-    virtual ~Shape() = default;
-};
-
-class Square : public Shape {
-    double side;
-public:
-    Square(double s) : side{s} {}
-    double area() const override { return side * side; }
-};
-
-class Circle : public Shape {
-    double r;
-public:
-    Circle(double r_) : r{r_} {}
-    double area() const override { return 3.14159 * r * r; }
-};
+template <typename T> T sumPair(T a, T b) {
+    return a + b;
+}
 
 int main() {
-    double side, radius;
-    std::cin >> side >> radius;
+    int a,b;
+    double c,d;
+    std::cin >> a >> b;
+    std::cin >> c >> d;
+    std::cout << sumPair(a,b) << std::endl;
     std::cout << std::fixed << std::setprecision(2);
-
-    Shape* sq = new Square(side);
-    Shape* c = new Circle(radius);
-
-    std::cout << sq->area() << "\n";
-    std::cout << c->area() << "\n";
-
-    delete sq;
-    delete c;
-
+    std::cout << sumPair(c,d);
     return 0;
 }
