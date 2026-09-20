@@ -1,25 +1,38 @@
 #include <iostream>
-#include <algorithm>
-#include <numeric>
-#include <vector>
+
+class Rectangle{
+    private:
+        int hight;
+        int weight;
+    public:
+
+        Rectangle(int h , int w) : hight{h}, weight {w}{
+            hight = h;
+            weight = w;
+        }
+
+        void GetData() {
+            std::cin >> hight;
+            std::cin >> weight;
+        }
+
+        int perimeter () const {
+            return 2 * (hight + weight);
+        }
+
+        int area () const {
+            return hight * weight;
+        }
+};
 
 
 int main() {
-    std::vector<int> nums;
-    int x;
-
-    while (std::cin>>x) {
-        nums.push_back(x);
-    }
     
-    std::vector<int> sorted_nums;
-    for (int i = 0; i < nums.size(); i++) {
-        if (nums[i] % 2 == 0) {
-            sorted_nums.push_back(nums[i]*nums[i]);
-        }
-    }
+    Rectangle rect (0,0);
+    rect.GetData();
 
-    int sum = std::accumulate(sorted_nums.begin(), sorted_nums.end(), 0);
-    std::cout << sum;
+    std::cout << "area: " << rect.area() << std::endl;
+    std::cout << "perimeter: " << rect.perimeter() << std::endl;
+
     return 0;
 }
