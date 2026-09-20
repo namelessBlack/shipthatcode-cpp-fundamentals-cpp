@@ -1,38 +1,39 @@
 #include <iostream>
+#include <iomanip>
 
-class Rectangle{
-    private:
-        int hight;
-        int weight;
-    public:
-
-        Rectangle(int h , int w) : hight{h}, weight {w}{
-            hight = h;
-            weight = w;
-        }
-
-        void GetData() {
-            std::cin >> hight;
-            std::cin >> weight;
-        }
-
-        int perimeter () const {
-            return 2 * (hight + weight);
-        }
-
-        int area () const {
-            return hight * weight;
-        }
+class Shape {
+public:
+    virtual double area() const = 0;
+    virtual ~Shape() = default;
 };
 
+class Square : public Shape {
+    double side;
+public:
+    Square(double s) : side{s} {}
+    double area() const override { return side * side; }
+};
+
+class Circle : public Shape {
+    double r;
+public:
+    Circle(double r_) : r{r_} {}
+    double area() const override { return 3.14159 * r * r; }
+};
 
 int main() {
-    
-    Rectangle rect (0,0);
-    rect.GetData();
+    double side, radius;
+    std::cin >> side >> radius;
+    std::cout << std::fixed << std::setprecision(2);
 
-    std::cout << "area: " << rect.area() << std::endl;
-    std::cout << "perimeter: " << rect.perimeter() << std::endl;
+    Shape* sq = new Square(side);
+    Shape* c = new Circle(radius);
+
+    std::cout << sq->area() << "\n";
+    std::cout << c->area() << "\n";
+
+    delete sq;
+    delete c;
 
     return 0;
 }
